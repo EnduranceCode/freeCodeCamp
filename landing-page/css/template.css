@@ -1,7 +1,11 @@
-#header {
+#nav-bar {
     background-color: #3F51B5;
 }
 
-#header-img {
-    margin: 20px;
+#nav-bar .navbar-brand > a.navbar-item:hover {
+    background-color: transparent;
+}
+
+#nav-bar a.navbar-item:focus {
+    background-color: #3F51B5;
 }
