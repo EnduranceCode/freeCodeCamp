@@ -9,3 +9,8 @@
 #nav-bar a.navbar-item:focus {
     background-color: #3F51B5;
 }
+
+#nav-bar .navbar-start > a.nav-link:hover,
+#nav-bar .navbar-start > a.nav-link:active {
+    background-color: #f44336;
+}
