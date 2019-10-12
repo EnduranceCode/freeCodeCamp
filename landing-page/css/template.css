@@ -14,3 +14,206 @@
 #nav-bar .navbar-start > a.nav-link:active {
     background-color: #f44336;
 }
+
+/* PRICE TABLE */
+
+.price-pack {
+}
+
+.price-pack__header {
+  margin: -24px;
+  overflow: auto;
+}
+
+.price-pack__header--400 {
+  background-color: #42a5f5;
+}
+
+.price-pack__header--500 {
+  background-color: #2196f3;
+}
+
+.price-pack__header--600 {
+  background-color: #1e88e5;
+}
+
+.price-pack__header--700 {
+  background-color: #1976d2;
+}
+
+.price-pack__header--800 {
+  background-color: #1565c0;
+}
+
+.price-pack__header--900 {
+  background-color: #0d47a1;
+}
+
+.price-pack__quantity {
+	font-size: 48px;
+	line-height: 64px;
+	padding: 20px 0 0;
+}
+
+.price-pack__designation {
+	font-size: 24px;
+	line-height: 32px;
+	padding: 0 0 20px;
+}
+
+.price-pack__quantity,
+.price-pack__designation,
+.price-pack__price {
+  color: white;
+  font-weight: bold;
+  text-align: center;
+}
+
+.price-pack__icon {
+  height: 60px;
+  margin: 10px auto 10px;
+  width: 60px;
+}
+
+.price-pack__title {
+  color: white;
+  margin: 0 0 20px;
+  text-align: center;
+}
+
+.content ul.price-pack__features-list {
+  list-style: none;
+  margin: 0;
+  padding-bottom: 20px;
+}
+
+.price-pack__features-list {
+  margin: -24px;
+  overflow: auto;
+}
+
+.price-pack__features-list .price-pack__price {
+    background-color: #bdbdbd;
+    font-size: 34px;
+    line-height: 40px;
+    padding: 20px 0;
+  }
+
+.price-pack__features-list .price-pack__price--400 {
+    background-color: #5c6bc0;
+  }
+
+.price-pack__features-list .price-pack__price--500 {
+    background-color: #3f51b5;
+  }
+
+.price-pack__features-list .price-pack__price--600 {
+    background-color: #3949ab;
+  }
+
+.price-pack__features-list .price-pack__price--700 {
+    background-color: #303f9f;
+  }
+
+.price-pack__features-list .price-pack__price--800 {
+    background-color: #283593;
+  }
+
+.price-pack__features-list .price-pack__price--900 {
+    background-color: #1a237e;
+  }
+
+.price-pack__features-list .price-pack__arrow-down {
+    width: 0; 
+    height: 0; 
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid #bdbdbd;
+    margin: 0 auto 10px;
+  }
+
+.price-pack__features-list .price-pack__arrow-down--400 {
+    border-top: 10px solid #5c6bc0;
+  }
+
+.price-pack__features-list .price-pack__arrow-down--500 {
+    border-top: 10px solid #3f51b5;
+  }
+
+.price-pack__features-list .price-pack__arrow-down--600 {
+    border-top: 10px solid #3949ab;
+  }
+
+.price-pack__features-list .price-pack__arrow-down--700 {
+    border-top: 10px solid #303f9f;
+  }
+
+.price-pack__features-list .price-pack__arrow-down--800 {
+    border-top: 10px solid #283593;
+  }
+
+.price-pack__features-list .price-pack__arrow-down--900 {
+    border-top: 10px solid #1a237e;
+  }
+
+.price-pack__features-list .price-pack__lead {
+    font-size: 16px;
+    font-weight: 200;
+    line-height: 24px;
+    text-align: center;
+  }
+  
+.price-pack__features-list .price-pack__feature-description {
+    border-bottom: 1px solid #e0e0e0;
+    margin: 5px 20px;
+    padding: 10px 0;
+  }
+
+.price-pack__legal {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.price-pack__footer {
+  margin: 20px 10px 0;
+}
+
+/* MEDIA QUERIES
+* ============= */
+
+/* Large desktops and up
+ * --------------------- */
+
+@media (min-width: 1200px) {
+
+}
+
+/* Tablets to regular desktops
+ * --------------------------- */
+
+@media (min-width: 768px) and (max-width: 979px) {
+  .price-pack__quantity {
+    font-size: 50px;
+    line-height: 64px;
+    padding: 10px 0 0;
+  }
+  
+  .price-pack__designation {
+    font-size: 24px;
+    line-height: 32px;
+  }
+}
+
+/* Phones to portrait tablets and narrow desktops
+ * ---------------------------------------------- */
+
+@media (max-width: 767px) {
+
+}
+
+/* Up to landscape phone
+ * --------------------- */
+
+@media (max-width: 480px) {
+    
+}
