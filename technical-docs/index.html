@@ -23,50 +23,319 @@
 
 <body>
     <header class="section">
-        <section class="container">
-            <h1 id="title" class="title">Responsive Web Design Projects - Build a Technical Documentation Page</h1>
+        <section class="content">
+            <h1 id="title" class="title is-1">Responsive Web Design Projects - Build a Technical Documentation Page</h1>
             <p id="description" class="subtitle">
                 This page is one of the Projects from freeCodeCamp's Responsive Web Design Certificate
                 curriculum. Its content was taken from the article <a
-                    href="https://www.guru99.com/maven-tutorial.html">Maven
-                    Tutorial for Beginners: What is,
-                    Architecture, Project Framework</a> published on the site <a
-                    href="https://www.guru99.com">Guru99</a>.
+                    href="https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html">Maven in 5
+                    Minutes</a> published on the site <a href="https://maven.apache.org">Apache Maven Project</a>.
             </p>
+        </section>
+
+        <section class="content">
+            <h2 class="title is-2">Maven in 5 Minutes</h2>
         </section>
     </header>
 
-    <main id="main-doc" class="section">
-        <section id="What_is_Maven" class="main-section container">
-            <header class="subtitle">What is Maven</header>
+    <main id="main-doc">
+        <section id="Prerequisites" class="main-section section">
+            <header class="title is-3">Prerequisites</header>
+            <main class="content">
+                <p>You must have an understanding of how to install software on your computer. If you do not know how to
+                    do this, please
+                    ask someone at your office, school, etc or pay someone to explain this to you. The Maven mailing
+                    lists are not the best
+                    place to ask for this advice.</p>
+            </main>
         </section>
 
-        <section id="How_can_Maven_benefit_my_development_process" class="main-section container">
-            <header class="subtitle">How can Maven benefit my
-                development process</header>
+        <section id="Installation" class="main-section section">
+            <header class="title is-3">Installation</header>
+            <main class="content">
+                <p>Maven is a Java tool, so you must have Java installed in order to proceed.</p>
+                <p>First, download Maven and follow the installation instructions. After that, type the following in a
+                    terminal or in a command prompt:</p>
+
+                <div class="content">
+                    <code>mvn --version</code>
+                </div>
+
+                <p>It should print out your installed version of Maven, for example:</p>
+
+                <div class="content">
+                    <code>
+                        Apache Maven 3.6.0 (97c98ec64a1fdfee7767ce5ffb20918da4f719f3; 2018-10-24T20:41:47+02:00)
+                        <br>
+                        Maven home: D:\apache-maven-3.6.0\bin\..
+                        <br>
+                        Java version: 1.8.0_161, vendor: Oracle Corporation, runtime: C:\Program Files\Java\jdk1.8.0_161\jre
+                        <br>
+                        Default locale: nl_NL, platform encoding: Cp1252
+                        <br>
+                        OS name: "windows 7", version: "6.1", arch: "amd64", family: "windows"
+                    </code>
+                </div>
+                <p>Depending upon your network setup, you may require extra configuration. Check out the Guide to
+                    Configuring Maven if
+                    necessary.</p>
+                <p>If you are using Windows, you should look at Windows Prerequisites to ensure that you are prepared to
+                    use Maven on
+                    Windows.</p>
+            </main>
         </section>
 
-        <section id="Processes_which_can_manage_using_Maven" class="main-section container">
-            <header class="subtitle">Processes which can manage using
-                Maven
-            </header>
+        <section id="Creating_a_Project" class="main-section section">
+            <header class="title is-3">Creating a Project</header>
+            <main class="content">
+                <p>You will need somewhere for your project to reside, create a directory somewhere and start a shell in
+                    that directory. On your command line, execute the following Maven goal:</p>
+
+                <div class="content">
+                    <code>
+                        mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=my-app -DarchetypeArtifactId=maven-archetype-quickstart
+                        <br>
+                        -DarchetypeVersion=1.4 -DinteractiveMode=false
+                    </code>
+                </div>
+
+                <p><em>If you have just installed Maven, it may take a while on the first run. This is because Maven is
+                        downloading the most recent artifacts (plugin jars and other files) into your local repository.
+                        You may also need to execute the command a couple of times before it succeeds. This is because
+                        the remote server may time out before your downloads are complete. Don't worry, there are ways
+                        to fix that.</em></p>
+                <p>You will notice that the generate goal created a directory with the same name given as the
+                    artifactId. Change into that directory.</p>
+
+                <div class="content">
+                    <code>cd my-app</code>
+                </div>
+                <p>Under this directory you will notice the following standard project structure.</p>
+
+                <div class="content">
+                    <code>
+                        my-app
+                        <br>
+                        |-- pom.xml
+                        <br>
+                        `-- src
+                        <br>
+                        |-- main
+                        <br>
+                        | `-- java
+                        <br>
+                        | `-- com
+                        <br>
+                        | `-- mycompany
+                        <br>
+                        | `-- app
+                        <br>
+                        | `-- App.java
+                        <br>
+                        `-- test
+                        <br>
+                        `-- java
+                        <br>
+                        `-- com
+                        <br>
+                        `-- mycompany
+                        <br>
+                        `-- app
+                        <br>
+                        `-- AppTest.java
+                    </code>
+                </div>
+                <p>The <code>src/main/java</code> directory contains the project source code, the
+                    <code>src/test/java</code> directory
+                    contains the test source, and the <code>pom.xml</code> file is the project's Project Object Model,
+                    or POM.</p>
+
+                <h4 class="title is-4">The POM</h4>
+                <p>The <code>pom.xml</code> file is the core of a project's configuration in Maven. It is a single
+                    configuration file that contains the majority of information required to build a project in just the
+                    way you want. The POM is huge and can be daunting in its complexity, but it is not necessary to
+                    understand all of the intricacies just yet to use it effectively. This project's POM is:</p>
+
+                <div class="content">
+                    <code>
+                            &lt;project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+                                <br>
+                                &emsp;<modelVersion>4.0.0</modelVersion>
+                            
+                                <br>
+                                &emsp;&lt;groupId>com.mycompany.app&lt;/groupId>
+                                <br>
+                                &emsp;&lt;artifactId>my-app&lt;/artifactId>
+                                <br>
+                                &emsp;&lt;version>1.0-SNAPSHOT&lt;/version>
+                            
+                                &emsp;<br>
+                                &emsp;&lt;properties>
+                                    <br>
+                                    &emsp;&emsp;&lt;maven.compiler.source>1.7&lt;/maven.compiler.source>
+                                    <br>
+                                    &emsp;&emsp;&lt;maven.compiler.target>1.7&lt;/maven.compiler.target>
+                                    <br>
+                                &emsp;&lt;/properties>
+                            
+                                <br>
+                                &emsp;&lt;dependencies>
+                                <br>
+                                    &emsp;&lt;dependency>
+                                        <br>
+                                        &emsp;&emsp;&lt;groupId>junit&lt;/groupId>
+                                        <br>
+                                        &emsp;&emsp;&lt;artifactId>junit&lt;/artifactId>
+                                        <br>
+                                        &emsp;&emsp;&lt;version>4.12&lt;/version>
+                                        <br>
+                                        &emsp;&emsp;&lt;scope>test&lt;/scope>
+                                    <br>
+                                    &emsp;&lt;/dependency>
+                                <br>
+                                &emsp;&lt;/dependencies>
+                                <br>
+                            &lt;/project>
+                        </code>
+                </div>
+
+                <h4 class="title is-4">What did I just do?</h4>
+                <p>You executed the Maven goal <i>archetype:generate</i>, and passed in various parameters to that goal.
+                    The prefix <i>archetype</i> is the plugin that provides the goal. If you are familiar with Ant,
+                    you may conceive of this as similar to a task. This <i>archetype:generate</i> goal created a simple
+                    project based upon a maven-archetype-quickstart archetype. Suffice it to say for now that a
+                    <i>plugin</i> is a collection of <i>goals</i> with a general common purpose. For example the
+                    jboss-maven-plugin, whose purpose is &quot;deal with various jboss items&quot;.</p>
+
+                <h4>Build the Project</h4>
+
+                <div class="content">
+                    <code>mvn package</code>
+                </div>
+
+                <p>The command line will print out various actions, and end with the following:</p>
+
+                <div class="content">
+                    <code>
+                        ...
+                        <br>
+                        [INFO] ------------------------------------------------------------------------
+                        <br>
+                        [INFO] BUILD SUCCESSFUL
+                        <br>
+                        [INFO] ------------------------------------------------------------------------
+                        <br>
+                        [INFO] Total time: 2 seconds
+                        <br>
+                        [INFO] Finished at: Thu Jul 07 21:34:52 CEST 2011
+                        <br>
+                        [INFO] Final Memory: 3M/6M
+                        <br>
+                        [INFO] ------------------------------------------------------------------------
+                    </code>
+                </div>
+
+                <p>Unlike the first command executed (<i>archetype:generate</i>) you may notice the second is simply a
+                    single word - <i>package</i>. Rather than a <i>goal</i>, this is a <i>phase</i>. A phase is a step
+                    in the build lifecycle, which is an ordered sequence of phases. When a phase is given, Maven will
+                    execute every phase in the sequence up to and including the one defined. For example, if we execute
+                    the <i>compile</i> phase, the phases that actually get executed are:</p>
+                <p>You may test the newly compiled and packaged JAR with the following command:</p>
+
+                <div class="content">
+                    <code>
+                        java -cp target/my-app-1.0-SNAPSHOT.jar com.mycompany.app.App
+                    </code>
+                </div>
+
+                <p>Which will print the quintessential:</p>
+
+                <div class="content">
+                    <code>Hello World!</code>
+                </div>
+            </main>
         </section>
 
-        <section id="Maven_Architecture" class="main-section container">
-            <header class="subtitle">Maven Architecture</header>
+        <section id="Java_9_or_later" class="main-section section">
+            <header class="title is-3">Java 9 or later</header>
+            <p>By default your version of Maven might use an old version of the <code>maven-compiler-plugin</code> that
+                is not compatible with Java 9 or later versions. To target Java 9 or later, you should at least use
+                version 3.6.0 of the <code>maven-compiler-plugin</code> and set the <code>maven.compiler.release</code>
+                property to the Java release you are targetting (e.g. 9, 10, 11, 12, etc.).</p>
+            <p>In the following example, we have configured our Maven project to use version 3.8.1 of
+                <code>maven-compiler-plugin</code> and target Java 11:</p>
+
+            <div class="content">
+                <code>
+                    &lt;properties>
+                    <br>
+                        &emsp;&lt;maven.compiler.release>11</maven.compiler.release>
+                    <br>
+                    &lt;/properties>
+                    <br>
+                    <br>
+                    &lt;build>
+                    <br>
+                        &emsp;&lt;pluginManagement>
+                    <br>
+                            &emsp;&emsp;&lt;plugins>
+                    <br>
+                                &emsp;&emsp;&emsp;&lt;plugin>
+                    <br>
+                                    &emsp;&emsp;&emsp;&emsp;&lt;groupId>org.apache.maven.plugins</groupId>
+                    <br>
+                                    &emsp;&emsp;&emsp;&emsp;&lt;artifactId>maven-compiler-plugin</artifactId>
+                    <br>
+                                    &emsp;&emsp;&emsp;&emsp;&lt;version>3.8.1</version>
+                    <br>
+                                &emsp;&emsp;&emsp;&lt;/plugin>
+                    <br>
+                            &emsp;&emsp;&lt;/plugins>
+                    <br>
+                        &emsp;&lt;/pluginManagement>
+                    <br>
+                    &lt;/build>
+                </code>
+            </div>
+
         </section>
 
-        <section id="How_to_use_Maven" class="main-section container">
-            <header class="subtitle">How to use Maven</header>
+        <section id="Running_Maven_Tools" class="main-section section">
+            <header class="title is-3">Running Maven Tools</header>
+            <main class="content">
+                <h4 class="title is-4"><a name="Maven_Phases"></a>Maven Phases</h4>
+                <p>Although hardly a comprehensive list, these are the most common <i>default</i> lifecycle phases
+                    executed.</p>
+                <p>There are two other Maven lifecycles of note beyond the default list above. They are</p>
+                <p>Phases are actually mapped to underlying goals. The specific goals executed per phase is dependant
+                    upon the packaging type of the project. For example, <i>package</i> executes <i>jar:jar</i> if
+                    the project type is a JAR, and <i>war:war</i> if the project type is - you guessed it - a WAR.</p>
+                <p>An interesting thing to note is that phases and goals may be executed in sequence.</p>
+
+                <div class="content">
+                    <code>mvn clean dependency:copy-dependencies package</code>
+                </div>
+                <p>This command will clean the project, copy dependencies, and package the project (executing all phases
+                    up to package, of course).</p>
+
+                <h4 class="title is-4">Generating the Site</h4>
+
+                <div class="content">
+                    <code>mvn site</code>
+                </div>
+                <p>This phase generates a site based upon information on the project's pom. You can look at the
+                    documentation generated under <code>target/site</code>.</p>
+            </main>
         </section>
 
-        <section id="Steps_and_process_involved_in_building_the_project" class="main-section container">
-            <header class="subtitle">Steps and process involved in
-                building the project</header>
-        </section>
-
-        <section id="Summary" class="main-section container">
-            <header class="subtitle">Summary</header>
+        <section id="Conclusion" class="main-section section">
+            <header class="title is-3">Conclusion</header>
+            <main class="content">
+                <p>We hope this quick overview has piqued your interest in the versatility of Maven. Note that this is a
+                    very truncated quick-start guide. Now you are ready for more comprehensive details concerning the
+                    actions you have just performed. Check out the Maven Getting Started Guide.</p>
+            </main>
         </section>
     </main>
 
