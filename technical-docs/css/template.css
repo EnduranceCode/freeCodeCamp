@@ -1,0 +1,13 @@
+/* MEDIA QUERIES
+* ============= */
+
+/* Phones to portrait tablets and narrow desktops
+ * ---------------------------------------------- */
+
+@media (max-width: 767px) {
+
+    #navbar {
+        background-color: beige;
+    }
+
+}
