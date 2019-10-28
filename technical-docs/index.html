@@ -241,6 +241,16 @@
                     in the build lifecycle, which is an ordered sequence of phases. When a phase is given, Maven will
                     execute every phase in the sequence up to and including the one defined. For example, if we execute
                     the <i>compile</i> phase, the phases that actually get executed are:</p>
+
+                <ol>
+                    <li>validate</li>
+                    <li>generate-sources</li>
+                    <li>process-sources</li>
+                    <li>generate-resources</li>
+                    <li>process-resources</li>
+                    <li>compile</li>
+                </ol>
+
                 <p>You may test the newly compiled and packaged JAR with the following command:</p>
 
                 <div class="content">
@@ -307,7 +317,28 @@
                 <h4 class="title is-4"><a name="Maven_Phases"></a>Maven Phases</h4>
                 <p>Although hardly a comprehensive list, these are the most common <i>default</i> lifecycle phases
                     executed.</p>
+                <ul>
+                    <li>validate: validate the project is correct and all necessary information is available</li>
+                        <li>compile: compile the source code of the project</li>
+                        <li>test: test the compiled source code using a suitable unit testing framework. These tests should
+                        not require the code be packaged or deployed</li>
+                        <li>package: take the compiled code and package it in its distributable format, such as a JAR.</li>
+                        <li>integration-test: process and deploy the package if necessary into an environment where
+                        integration tests can be run</li>
+                        <li>verify: run any checks to verify the package is valid and meets quality criteria</li>
+                        <li>install: install the package into the local repository, for use as a dependency in other
+                        projects locally</li>
+                        <li>deploy: done in an integration or release environment, copies the final package to the remote
+                        repository for sharing with other developers and projects.</li>
+                </ul>
+
                 <p>There are two other Maven lifecycles of note beyond the default list above. They are</p>
+
+                <ul>
+                    <li>clean: cleans up artifacts created by prior builds</li>
+                    <li>site: generates site documentation for this project</li>
+                </ul>
+
                 <p>Phases are actually mapped to underlying goals. The specific goals executed per phase is dependant
                     upon the packaging type of the project. For example, <i>package</i> executes <i>jar:jar</i> if
                     the project type is a JAR, and <i>war:war</i> if the project type is - you guessed it - a WAR.</p>
